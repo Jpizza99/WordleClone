@@ -7,9 +7,10 @@ import random
 
 def main():
 
-    wordset = load_word_set("data/wordle_words.txt")
+    wordset = load_word_set("data\wordle-allowed-guesses.txt")
+    gwordset = load_word_set("data\wordle-answers-alphabetical.txt")
     print('Hello')
-    secret = random.choice(list(wordset))
+    secret = random.choice(list(gwordset))
 
     wordle = Wordle(secret)
     while wordle.can_attempt:
@@ -20,10 +21,10 @@ def main():
             continue
 
 
-        if not x in wordset:
+        if not x.upper() in wordset:
             print(Fore.RED + f'{x} is not a valid word' + Fore.RESET)
             continue
-        
+
         wordle.attempt(x)
         display_results(wordle)
 

@@ -1,4 +1,4 @@
-def main():
+def main1():
     input_file = 'data/wordsource.txt'
     output_path = "data/wordle_words.txt"
     five_letter_words = []
@@ -11,7 +11,6 @@ def main():
     with open(output_path, 'w') as f:
         for word in five_letter_words:
             f.write(word + "\n")
-
 
     print(f'Found {len(five_letter_words)} Five-Letter-words')
 
